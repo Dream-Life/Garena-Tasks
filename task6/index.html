@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text"></p>
+    
+    <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','data.json')
+    xhr.onload = function (){
+        if(this.status === 200){
+            document.getElementById('text').innerHTML = this.response.name
+        }else{
+            console.log(new Error(this.statusText))
+        }
+    }
+    xhr.send()
+
+
+    </script>
+</body>
+</html>
